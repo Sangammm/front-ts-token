@@ -31,14 +31,22 @@ const Routes: React.SFC<Props> = () => {
 		<Router>
 			{Object.keys(routesObject).map((item: string) => {
 				const { privateRoute, Component, path, exact } = routesObject[item]
-				return privateRoute ? (
-					localStorage.getItem('accessToken') ? (
-						<Route path={path} exact={exact} component={Component} />
-					) : (
-						<Redirect to={routesObject.Login.path} />
-					)
-				) : (
-					<Route {...routesObject[item]} render={() => <Component />} />
+				return (
+					<Route
+						path={path}
+						exact={exact}
+						render={() =>
+							privateRoute ? (
+								localStorage.getItem('accessToken') ? (
+									<Component />
+								) : (
+									<Redirect to={routesObject.Login.path} />
+								)
+							) : (
+								<Component />
+							)
+						}
+					/>
 				)
 			})}
 		</Router>
