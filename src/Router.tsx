@@ -1,36 +1,44 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 export interface Props {}
 
-export const routes: any = {
-	Login: { path: '/', exact: true, privateRoute: false, component: React.lazy(() => import('./Containers/Login')) },
+interface routesObjectProp {
+	[key: string]: {
+		path: string
+		exact: boolean
+		privateRoute: boolean
+		Component: React.LazyExoticComponent<React.FunctionComponent>
+	}
+}
+export const routesObject: routesObjectProp = {
+	Login: { path: '/', exact: true, privateRoute: false, Component: React.lazy(() => import('./Containers/Login')) },
 	Signup: {
 		path: '/signup',
 		exact: true,
 		privateRoute: false,
-		component: React.lazy(() => import('./Containers/Login'))
+		Component: React.lazy(() => import('./Containers/Signup'))
 	},
 	Home: {
 		path: '/home',
 		exact: true,
 		privateRoute: true,
-		component: React.lazy(() => import('./Containers/Home'))
+		Component: React.lazy(() => import('./Containers/Home'))
 	}
 }
 const Routes: React.SFC<Props> = () => {
 	return (
 		<Router>
-			{Object.keys(routes).map((item: string) => {
-				const { path, exact, privateRoute, components } = routes[item]
+			{Object.keys(routesObject).map((item: string) => {
+				const { privateRoute, Component, path, exact } = routesObject[item]
 				return privateRoute ? (
 					localStorage.getItem('accessToken') ? (
-						<Route {...routes[item]} render={() => components} />
+						<Route path={path} exact={exact} component={Component} />
 					) : (
-						<Redirect to={routes.Login.path} />
+						<Redirect to={routesObject.Login.path} />
 					)
 				) : (
-					<Route {...routes[item]} render={() => components} />
+					<Route {...routesObject[item]} render={() => <Component />} />
 				)
 			})}
 		</Router>
