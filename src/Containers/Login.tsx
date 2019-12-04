@@ -19,13 +19,15 @@ const Login: React.SFC<LoginProps> = () => {
 			// history.push('/home')
 		},
 		onError(error) {
-			console.log(error.graphQLErrors)
-			setError(error.graphQLErrors[0].message)
+			console.log(error)
+			// setError(error.graphQLErrors[0].message || 'Something went wrong')
 		}
 	})
 	const formSubmit = async (e: any) => {
 		e.preventDefault()
 		setError(null)
+		console.log(email, password)
+
 		login({ variables: { input: { email, password } } })
 	}
 

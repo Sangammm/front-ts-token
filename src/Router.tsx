@@ -17,7 +17,7 @@ export const routesObject: routesObjectProp = {
 		path: '/signup',
 		exact: true,
 		privateRoute: false,
-		Component: React.lazy(() => import('./Containers/Signup'))
+		Component: React.lazy(() => import('./Containers/Signup/Signup'))
 	},
 	Home: {
 		path: '/home',
@@ -33,6 +33,7 @@ const Routes: React.SFC<Props> = () => {
 				const { privateRoute, Component, path, exact } = routesObject[item]
 				return (
 					<Route
+						key={path}
 						path={path}
 						exact={exact}
 						render={() =>

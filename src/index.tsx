@@ -5,9 +5,10 @@ import * as serviceWorker from './serviceWorker'
 import Router from './Router'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { client } from './Apollo/apollo'
+import Loader from './Components/Loader'
 ReactDOM.render(
 	<ApolloProvider client={client}>
-		<Suspense fallback={() => <div>Loading</div>}>
+		<Suspense fallback={<Loader />}>
 			<Router />
 		</Suspense>
 	</ApolloProvider>,
