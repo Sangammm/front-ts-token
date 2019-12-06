@@ -12,19 +12,24 @@ interface routesObjectProp {
 	}
 }
 export const routesObject: routesObjectProp = {
-	Login: { path: '/', exact: true, privateRoute: false, Component: React.lazy(() => import('./Containers/Login')) },
+	Login: {
+		path: '/',
+		exact: true,
+		privateRoute: false,
+		Component: React.lazy(() => import('./Containers/Login/Login')),
+	},
 	Signup: {
 		path: '/signup',
 		exact: true,
 		privateRoute: false,
-		Component: React.lazy(() => import('./Containers/Signup/Signup'))
+		Component: React.lazy(() => import('./Containers/Signup/Signup')),
 	},
 	Home: {
 		path: '/home',
 		exact: true,
 		privateRoute: true,
-		Component: React.lazy(() => import('./Containers/Home'))
-	}
+		Component: React.lazy(() => import('./Containers/Home/Home')),
+	},
 }
 const Routes: React.SFC<Props> = () => {
 	return (
