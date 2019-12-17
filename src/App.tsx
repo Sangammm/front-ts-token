@@ -1,5 +1,5 @@
 import React from 'react'
-import Loader from './Components/Loader'
+import Loader from './Components/Loader/Loader'
 const App: React.FC = () => {
 	return (
 		<div className="App">

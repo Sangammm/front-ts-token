@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker'
 import Router from './Router'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { client } from './Apollo/apollo'
-import Loader from './Components/Loader'
+import Loader from './Components/Loader/Loader'
 import './index.scss'
 ReactDOM.render(
 	<ApolloProvider client={client}>
@@ -13,7 +13,7 @@ ReactDOM.render(
 			<Router />
 		</Suspense>
 	</ApolloProvider>,
-	document.getElementById('root')
+	document.getElementById('root'),
 )
 
 // If you want your app to work offline and load faster, you can change

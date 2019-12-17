@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { SIGNIN } from '../../Apollo/gql'
-import Loader from '../../Components/Loader'
+import Loader from '../../Components/Loader/Loader'
+import Header from '../../Components/Header/Header'
 import { useHistory } from 'react-router-dom'
 import './Login.scss'
 export interface LoginProps {}
@@ -15,7 +16,7 @@ const Login: React.SFC<LoginProps> = () => {
 		onCompleted(data) {
 			console.log(data)
 			const {
-				login: { accessToken, refreshToken },
+				login: { accessToken },
 			} = data
 			localStorage.setItem('accessToken', accessToken)
 			history.push('/home')
@@ -34,6 +35,7 @@ const Login: React.SFC<LoginProps> = () => {
 
 	return (
 		<>
+			<Header />
 			<div className="main_form_container">
 				<span className="form_header">{`\`Login\``}</span>
 				<input type="email" onChange={e => setEmail(e.target.value)} value={email} placeholder="email" />

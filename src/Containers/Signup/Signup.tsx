@@ -2,7 +2,8 @@ import * as React from 'react'
 import { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import { SIGNUP } from '../../Apollo/gql'
-import Loader from '../../Components/Loader'
+import Loader from '../../Components/Loader/Loader'
+import Header from '../../Components/Header/Header'
 import { useHistory } from 'react-router-dom'
 import '../Login/Login.scss'
 
@@ -37,6 +38,7 @@ const Signup: React.SFC<SignupProps> = () => {
 
 	return (
 		<>
+			<Header />
 			<div className="main_form_container">
 				<span className="form_header">{`\`Welcome\``}</span>
 				<input type="email" onChange={e => setEmail(e.target.value)} value={email} placeholder="email" />
