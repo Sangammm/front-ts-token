@@ -8,3 +8,4 @@ export const client = new ApolloClient({
 	credentials: 'include',
 	headers: { accessToken: localStorage.getItem('accessToken') },
 })
+console.log(client)

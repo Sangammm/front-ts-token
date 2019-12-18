@@ -1,0 +1,48 @@
+.home {
+	margin: 0 auto;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	.title {
+		font-size: 30px;
+		line-height: 32px;
+		height: 52px;
+		padding: 10px;
+		margin: 0 auto;
+	}
+	.homeContainer {
+		display: flex;
+		flex-direction: column;
+		.infoContainer {
+			// z-index: 2;
+			margin: 20px;
+			border-left: 0.5px solid rgb(128, 128, 128);
+			border-right: 0.5px solid rgb(128, 128, 128);
+			border-radius: 10px;
+			box-shadow: 2px 2px rgb(97, 2, 2);
+			padding: 25px;
+			display: flex;
+			flex-direction: row;
+			.profile {
+				height: 50px;
+				widows: 50px;
+				border-radius: 100px;
+				object-fit: cover;
+			}
+			.nameEmail {
+				padding-left: 20px;
+				display: flex;
+				flex-direction: column;
+				.name {
+					font-size: 25px;
+					line-height: 27px;
+					font-weight: 400;
+				}
+				.email {
+					font-size: 18px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+}

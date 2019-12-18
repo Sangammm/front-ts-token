@@ -21,3 +21,19 @@ export const SIGNUP = gql`
 		}
 	}
 `
+export const GET_USERS = gql`
+	query users {
+		users {
+			users {
+				email
+				name
+				id
+			}
+			TokenInfo {
+				accessToken
+				expired
+				sendNew
+			}
+		}
+	}
+`

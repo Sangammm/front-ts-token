@@ -38,15 +38,21 @@ const Signup: React.SFC<SignupProps> = () => {
 
 	return (
 		<>
-			<Header />
-			<div className="main_form_container">
+			<Header
+				links={[
+					{ path: '/', title: 'Log >>> In' },
+					{ path: '/signup', title: 'Sign ^^^ Up' },
+				]}
+				logout={false}
+			/>
+			<form onSubmit={formSubmit} className="main_form_container">
 				<span className="form_header">{`\`Welcome\``}</span>
 				<input type="email" onChange={e => setEmail(e.target.value)} value={email} placeholder="email" />
 				<input type="password" onChange={e => setPassword(e.target.value)} value={password} placeholder="password" />
 				<input type="name" onChange={e => setName(e.target.value)} value={name} placeholder="name" />
-				{!loading ? <button onClick={formSubmit}>Signup</button> : <Loader color="#54888a" />}
+				{!loading ? <button type="submit">Signup</button> : <Loader color="#54888a" />}
 				{error ? <h4 style={{ color: 'red', margin: '4px auto' }}>{error}</h4> : undefined}
-			</div>
+			</form>
 		</>
 	)
 }

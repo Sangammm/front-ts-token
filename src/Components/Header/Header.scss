@@ -4,12 +4,12 @@ header {
 	padding: 10px;
 	justify-content: space-around;
 	align-items: center;
-
+	background-color: rgb(14, 103, 97);
+	color: white;
 	.title {
 		font-size: 30px;
 		line-height: 35px;
 	}
-
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -17,8 +17,18 @@ header {
 		margin: 0;
 		padding: 0;
 		li {
-			border: 1px solid red;
-			padding: 10px 20px;
+			border-bottom: 2px solid whitesmoke;
+			margin-right: 20px;
+			* {
+				font-size: 16px;
+				line-height: 18px;
+				margin: 0;
+				padding: 0;
+				text-decoration: none;
+				border: none;
+				color: white;
+				background: none;
+			}
 		}
 	}
 }
