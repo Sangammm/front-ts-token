@@ -19,7 +19,7 @@ const Login: React.SFC<LoginProps> = () => {
 				login: { accessToken },
 			} = data
 			localStorage.setItem('accessToken', accessToken)
-			history.push('/home')
+			history.replace('/home')
 		},
 		onError(error) {
 			console.log(error)

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from '../../Components/Header/Header'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_USERS } from '../../Apollo/gql'
@@ -11,16 +11,25 @@ export interface User {
 	name?: string
 	id: string
 }
+
 interface Users {
 	users: Array<User>
 }
+interface TokenInfo {
+expired :boolean
+accessToken: string
+sendNew: boolean
+}
+interface returnType {
+	users: Users
+	TokenInfo: TokenInfo
+}
 
 const Home: React.SFC<LoginProps> = () => {
-	const { loading, error, data } = useQuery(GET_USERS)
-
+	const { loading, error, data } = useQuery<returnType>(GET_USERS)
 	return (
 		<>
-			<Header links={[]} logout={true} />
+			<Header links={[]} logout />
 			<div className="home">
 				<p className="title">Usersssss</p>
 				{loading && <Loader />}

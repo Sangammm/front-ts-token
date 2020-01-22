@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
 import * as serviceWorker from './serviceWorker'
 import Router from './Router'
 import { ApolloProvider } from '@apollo/react-hooks'

@@ -6,6 +6,5 @@ export const client = new ApolloClient({
 	name: 'react-client',
 	uri,
 	credentials: 'include',
-	headers: { accessToken: localStorage.getItem('accessToken') },
+	headers: { get accessToken() { return localStorage.getItem('accessToken') } },
 })
-console.log(client)
