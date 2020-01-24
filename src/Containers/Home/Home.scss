@@ -12,14 +12,21 @@
 	.homeContainer {
 		display: flex;
 		flex-direction: column;
+		.infoContainer:hover {
+			margin-left: 15px;
+			animation-duration: 2s;
+			animation-name: move-left;
+		}
 		.infoContainer {
 			.centerContent {
 				display: flex;
 				align-items: center;
 			}
+			cursor: pointer;
 			justify-content: center;
 			margin: 0px;
 			border: 0.5px solid rgb(128, 128, 128);
+			border-radius: 5px;
 			padding: 25px;
 			display: flex;
 			flex-direction: row;
@@ -44,5 +51,14 @@
 				}
 			}
 		}
+	}
+}
+@keyframes move-left {
+	from {
+		margin-left: 0px;
+	}
+	to {
+		background-color: yellow;
+		margin-left: 10px;
 	}
 }
