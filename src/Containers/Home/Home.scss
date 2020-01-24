@@ -12,9 +12,9 @@
 	.homeContainer {
 		display: flex;
 		flex-direction: column;
+		max-width: 200px;
 		.infoContainer:hover {
-			margin-left: 15px;
-			animation-duration: 2s;
+			animation-duration: 0.5s;
 			animation-name: move-left;
 		}
 		.infoContainer {
@@ -55,10 +55,10 @@
 }
 @keyframes move-left {
 	from {
-		margin-left: 0px;
+		background-color: none;
 	}
 	to {
-		background-color: yellow;
-		margin-left: 10px;
+		padding-left: 10px;
+		background-color: grey;
 	}
 }
