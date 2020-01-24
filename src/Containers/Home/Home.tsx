@@ -16,9 +16,9 @@ interface Users {
 	users: Array<User>
 }
 interface TokenInfo {
-expired :boolean
-accessToken: string
-sendNew: boolean
+	expired: boolean
+	accessToken: string
+	sendNew: boolean
 }
 interface returnType {
 	users: Users
@@ -39,14 +39,13 @@ const Home: React.SFC<LoginProps> = () => {
 						data.users &&
 						data.users.users.map((item: User, i: number) => {
 							return (
-								<div
-									className="infoContainer"
-									key={item.id}
-								>
-									<img className="profile" src={`https://picsum.photos/id/${10 + i}/200/200`} alt="profile" />
-									<div className="nameEmail">
-										<p className="name">{item.name}</p>
-										<p className="email">{item.email}</p>
+								<div className="infoContainer" key={item.id}>
+									<div className="centerContent">
+										<img className="profile" src={`https://picsum.photos/id/${10 + i}/200/200`} alt="profile" />
+										<div className="nameEmail">
+											<p className="name">{item.name}</p>
+											<p className="email">{item.email}</p>
+										</div>
 									</div>
 								</div>
 							)
